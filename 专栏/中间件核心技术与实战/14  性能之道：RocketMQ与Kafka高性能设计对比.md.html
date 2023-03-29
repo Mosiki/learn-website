@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)https://kaiiiz.github.io/hexo-theme-book-demo/ -->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
+        <link rel="icon" href="../../static/favicon.png">
+        <title>14  性能之道：RocketMQ与Kafka高性能设计对比.md</title>
+        <!-- Spectre.css framework -->
+        <link rel="stylesheet" href="../../static/index.css">
+        <link rel="stylesheet"
+              href="../../static/highlight.min.css">
+        <script src="../../static/highlight.min.js"></script>
+        <!-- theme css & js -->
+        <meta name="generator" content="Hexo 4.2.0">
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5295275829820252"
+                crossorigin="anonymous"></script>
+        <script async defer data-website-id="83e5d5db-9d06-40e3-b780-cbae722fdf8c" src="https://analyze.lianglianglee.com/umami.js"></script>
+    </head>
+
+<body>
+
+    <div class="book-container">
+        <div class="book-sidebar">
+            <div class="book-brand">
+                <a href="../../index.html">
+                    <img src="../../static/favicon.png">
+                    <span>技术文章摘抄</span>
+                </a>
+            </div>
+            <div class="book-menu uncollapsible">
+                <ul class="uncollapsible">
+                    <li><a href="../../index.html" class="current-tab">首页</a></li>
+                </ul>
+
+                <ul class="uncollapsible">
+                    <li><a href="../index.html">上一级</a></li>
+                </ul>
+
+                <ul class="uncollapsible">
+                    <li>
+
+                        
+                        <a href="00%20%E5%BC%80%E7%AF%87%E8%AF%8D%20%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%AF%B9%E5%88%86%E5%B8%83%E5%BC%8F%E6%9E%B6%E6%9E%84%E4%BD%93%E7%B3%BB%E6%9D%A5%E8%AF%B4%E8%BF%99%E4%B9%88%E9%87%8D%E8%A6%81%EF%BC%9F.md.html">00 开篇词 为什么中间件对分布式架构体系来说这么重要？.md</a>
+
+                    </li>
+                    <li>
+
+                        
+                        <a href="01%20%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%94%9F%E6%80%81%EF%BC%88%E4%B8%8A%EF%BC%89%EF%BC%9A%E6%9C%89%E5%93%AA%E4%BA%9B%E7%B1%BB%E5%9E%8B%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%EF%BC%9F.md.html">01 中间件生态（上）：有哪些类型的中间件？.md</a>
+
+                    </li>
+                    <li>
+
+                        
+                        <a href="02%20%E4%B8%AD%E9%97%B4%E4%BB%B6%E7%94%9F%E6%80%81%EF%BC%88%E4%B8%8B%EF%BC%89%EF%BC%9A%E5%90%8C%E7%B1%BB%E5%9E%8B%E7%9A%84%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E9%80%89%E5%9E%8B%EF%BC%9F.md.html">02 中间件生态（下）：同类型的中间件如何进行选型？.md</a>
+
+                    </li>
+                    <li>
+
+                        
+                        <a href="03%20%20%E6%95%B0%E7%BB%84%E4%B8%8E%E9%93%BE%E8%A1%A8%EF%BC%9A%E5%AD%98%E5%82%A8%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E7%9F%B3%E6%9C%89%E5%93%AA%E4%BA%9B%EF%BC%9F.md.html">03  数组与链表：存储设计的基石有哪些？.md</a>
+
+                    </li>
+                    <li>
+
+                        
+                        <a href="04%20%20%E7%BA%A2%E9%BB%91%E6%A0%91%EF%BC%9A%E5%9B%BE%E8%A7%A3%E7%BA%A2%E9%BB%91%E6%A0%91%E7%9A%84%E6%9E%84%E9%80%A0%E8%BF%87%E7%A8%8B%E4%B8%8E%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF.md.html">04  红黑树：图解红黑树的构造过程与应用场景.md</a>
+
+                    </li>
+                    <li>
+
+                        
+                        <a href="05%20%20%E5%A4%9A%E7%BA%BF%E7%A8%8B%EF%BC%9A%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%BC%96%E7%A8%8B%E6%9C%89%E5%93%AA%E4%BA%9B%E5%B8%B8%E8%A7%81%E7%9A%84%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%EF%BC%9F.md.html">05  多线程：多线程编程有哪些常见的设计模式？.md</a>
+
+                    </li>
+                    <li>
+
+                        
+                        <a href="06%20%20%E9%94%81%EF%BC%9A%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E9%94%81%E7%9A%84%E5%90%8C%E6%AD%A5%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97%E4%B8%8E%E6%9D%A1%E4%BB%B6%E9%98%9F%E5%88%97%EF%BC%9F.md.html">06  锁：如何理解锁的同步阻塞队列与条件队列？.md</a>
+
+                    </li>
+                    <li>
+
+                        
+                        <a href="07%20%20NIO%EF%BC%9A%E6%89%8B%E6%92%B8%E4%B8%80%E4%B8%AA%E7%AE%80%E6%98%93%E7%9A%84%E4%B8%BB%E4%BB%8E%E5%A4%9AReactor%E7%BA%BF%E7%A8%8B%E6%A8%A1%E5%9E%8B.md.html">07  NIO：手撸一个简易的主从多Reactor线程模型.md</a>
+
+                    </li>
+                    <li>
+
+                        
+                        <a href="08%20%20Netty%EF%BC%9A%E5%A6%82%E4%BD%95%E4%BC%98%E9%9B%85%E5%9C%B0%E5%A4%84%E7%90%86%E7%BD%91%E7%BB%9C%E8%AF%BB%E5%86%99%EF%BC%8C%E5%88%B6%E5%AE%9A%E7%BD%91%E7%BB%9C%E9%80%9A%E4%BF%A1%E5%8D%8F%E8%AE%AE%EF%BC%9F.md.html">08  Netty：如何优雅地处理网络读写，制定网络通信协议？.md</a>
+
+                    </li>
+                    <li>
+
+                        
+                        <a href="08%20%E5%8A%A0%E9%A4%90%20%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%BA%95%E5%B1%82%E7%9A%84%E9%80%9A%E7%94%A8%E8%AE%BE%E8%AE%A1%E7%90%86%E5%BF%B5.md.html">08 加餐 中间件底层的通用设计理念.md</a>
+
+                    </li>
+                    <li>
+
+                        
+                        <a href="09%20%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%EF%BC%9A%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%A1%86%E6%9E%B6%E5%92%8C%E6%B3%A8%E5%86%8C%E4%B8%AD%E5%BF%83%EF%BC%9F.md.html">09 技术选型：如何选择微服务框架和注册中心？.md</a>
+
+                    </li>
+                    <li>
+
+                        
+                        <a href="10%20%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86%EF%BC%9ADubbo%E6%A0%B8%E5%BF%83%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86%E5%89%96%E6%9E%90.md.html">10 设计原理：Dubbo核心设计原理剖析.md</a>
+
+                    </li>
+                    <li>
+
+                        
+                        <a href="11%20%E6%A1%88%E4%BE%8B%EF%BC%9A%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8EDubbo%E8%BF%9B%E8%A1%8C%E7%BD%91%E5%85%B3%E8%AE%BE%E8%AE%A1%EF%BC%9F.md.html">11 案例：如何基于Dubbo进行网关设计？.md</a>
+
+                    </li>
+                    <li>
+
+                        
+                        <a href="12%20%E6%A1%88%E4%BE%8B%EF%BC%9A%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E8%93%9D%E7%BB%BF%E5%8F%91%E5%B8%83%EF%BC%9F.md.html">12 案例：如何实现蓝绿发布？.md</a>
+
+                    </li>
+                    <li>
+
+                        
+                        <a href="13%20%20%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%EF%BC%9A%E5%A6%82%E4%BD%95%E6%A0%B9%E6%8D%AE%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E9%80%89%E6%8B%A9%E5%90%88%E9%80%82%E7%9A%84%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%EF%BC%9F.md.html">13  技术选型：如何根据应用场景选择合适的消息中间件？.md</a>
+
+                    </li>
+                    <li>
+
+                        <a class="current-tab" href="14%20%20%E6%80%A7%E8%83%BD%E4%B9%8B%E9%81%93%EF%BC%9ARocketMQ%E4%B8%8EKafka%E9%AB%98%E6%80%A7%E8%83%BD%E8%AE%BE%E8%AE%A1%E5%AF%B9%E6%AF%94.md.html">14  性能之道：RocketMQ与Kafka高性能设计对比.md</a>
+                        
+
+                    </li>
+                    <li>
+
+                        
+                        <a href="15%20%E6%A1%88%E4%BE%8B%EF%BC%9A%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E8%93%9D%E7%BB%BF%EF%BC%9F.md.html">15 案例：消息中间件如何实现蓝绿？.md</a>
+
+                    </li>
+                    <li>
+
+                        
+                        <a href="16%20%E6%A1%88%E4%BE%8B%EF%BC%9A%E5%A6%82%E4%BD%95%E6%8F%90%E5%8D%87RocketMQ%E9%A1%BA%E5%BA%8F%E6%B6%88%E8%B4%B9%E6%80%A7%E8%83%BD%EF%BC%9F.md.html">16 案例：如何提升RocketMQ顺序消费性能？.md</a>
+
+                    </li>
+                    <li>
+
+                        
+                        <a href="17%20%E8%BF%90%E7%BB%B4%EF%BC%9A%E5%A6%82%E4%BD%95%E8%BF%90%E7%BB%B4%E6%97%A5%E5%9D%87%E4%BA%BF%E7%BA%A7%E7%9A%84%E6%B6%88%E6%81%AF%E9%9B%86%E7%BE%A4%EF%BC%9F.md.html">17 运维：如何运维日均亿级的消息集群？.md</a>
+
+                    </li>
+                    <li>
+
+                        
+                        <a href="18%20%E6%A1%88%E4%BE%8B%EF%BC%9A%E5%A6%82%E4%BD%95%E6%8E%92%E6%9F%A5RocketMQ%E6%B6%88%E6%81%AF%E5%8F%91%E9%80%81%E8%B6%85%E6%97%B6%E6%95%85%E9%9A%9C%EF%BC%9F.md.html">18 案例：如何排查RocketMQ消息发送超时故障？.md</a>
+
+                    </li>
+                    <li>
+
+                        
+                        <a href="19%20%E6%A1%88%E4%BE%8B%EF%BC%9A%E5%A6%82%E4%BD%95%E6%8E%92%E6%9F%A5RocketMQ%E6%B6%88%E6%81%AF%E6%B6%88%E8%B4%B9%E7%A7%AF%E5%8E%8B%E9%97%AE%E9%A2%98%EF%BC%9F.md.html">19 案例：如何排查RocketMQ消息消费积压问题？.md</a>
+
+                    </li>
+                    <li>
+
+                        
+                        <a href="20%20%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%EF%BC%9A%E5%88%86%E5%B8%83%E5%BC%8F%E5%AE%9A%E6%97%B6%E8%B0%83%E5%BA%A6%E6%A1%86%E6%9E%B6%E7%9A%84%E5%8A%9F%E8%83%BD%E5%92%8C%E6%9C%AA%E6%9D%A5.md.html">20 技术选型：分布式定时调度框架的功能和未来.md</a>
+
+                    </li>
+                    <li>
+
+                        
+                        <a href="21%20%E8%AE%BE%E8%AE%A1%E7%90%86%E5%BF%B5%EF%BC%9A%E5%A6%82%E4%BD%95%E5%9F%BA%E4%BA%8EZooKeeper%E8%AE%BE%E8%AE%A1%E5%87%86%E5%AE%9E%E6%97%B6%E6%9E%B6%E6%9E%84%EF%BC%9F.md.html">21 设计理念：如何基于ZooKeeper设计准实时架构？.md</a>
+
+                    </li>
+                    <li>
+
+                        
+                        <a href="22%20%E6%A1%88%E4%BE%8B%EF%BC%9A%E4%BD%BF%E7%94%A8%E5%88%86%E5%B8%83%E5%BC%8F%E8%B0%83%E5%BA%A6%E6%A1%86%E6%9E%B6%E8%AF%A5%E8%80%83%E8%99%91%E5%93%AA%E4%BA%9B%E9%97%AE%E9%A2%98%EF%BC%9F.md.html">22 案例：使用分布式调度框架该考虑哪些问题？.md</a>
+
+                    </li>
+                    <li>
+
+                        
+                        <a href="23%20%E6%A1%88%E4%BE%8B%EF%BC%9A%E5%A6%82%E4%BD%95%E5%9C%A8%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83%E8%BF%9B%E8%A1%8C%E5%85%A8%E9%93%BE%E8%B7%AF%E5%8E%8B%E6%B5%8B%EF%BC%9F.md.html">23 案例：如何在生产环境进行全链路压测？.md</a>
+
+                    </li>
+                    <li>
+
+                        
+                        <a href="%E5%A4%A7%E5%92%96%E5%8A%A9%E9%98%B5%20%20%E9%AB%98%E6%A5%BC%EF%BC%9A%E6%88%91%E4%BB%AC%E5%BA%94%E8%AF%A5%E5%A6%82%E4%BD%95%E5%AD%A6%E4%B9%A0%E4%B8%AD%E9%97%B4%E4%BB%B6%EF%BC%9F.md.html">大咖助阵  高楼：我们应该如何学习中间件？.md</a>
+
+                    </li>
+                    <li>
+
+                        
+                        <a href="%E7%94%A8%E6%88%B7%E6%95%85%E4%BA%8B%20%20%E5%AD%A6%E8%80%8C%E6%97%B6%E4%B9%A0%E4%B9%8B%EF%BC%8C%E4%B8%8D%E4%BA%A6%E4%B9%90%E4%B9%8E.md.html">用户故事  学而时习之，不亦乐乎.md</a>
+
+                    </li>
+                    <li>
+
+                        
+                        <a href="%E7%94%A8%E6%88%B7%E6%95%85%E4%BA%8B%20%20%E6%84%BF%E5%81%9A%E6%8A%80%E6%9C%AF%E7%9A%84%E8%BF%BD%E6%A2%A6%E4%BA%BA.md.html">用户故事  愿做技术的追梦人.md</a>
+
+                    </li>
+                    <li>
+
+                        
+                        <a href="%E7%94%A8%E6%88%B7%E6%95%85%E4%BA%8B%20%20%E6%B5%AA%E8%B4%B9%E6%97%B6%E9%97%B4%E4%B9%9F%E6%98%AF%E4%B8%BA%E4%BA%86%E7%8F%8D%E6%83%9C%E6%97%B6%E9%97%B4.md.html">用户故事  浪费时间也是为了珍惜时间.md</a>
+
+                    </li>
+                    <li>
+
+                        
+                        <a href="%E7%BB%93%E6%9D%9F%E8%AF%AD%20%E5%9D%9A%E6%8C%81%E4%B8%8D%E6%87%88%EF%BC%8C%E8%B6%8A%E5%8A%AA%E5%8A%9B%E8%B6%8A%E5%B9%B8%E8%BF%90.md.html">结束语 坚持不懈，越努力越幸运.md</a>
+
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+
+        <div class="sidebar-toggle" onclick="sidebar_toggle()" onmouseover="add_inner()" onmouseleave="remove_inner()">
+            <div class="sidebar-toggle-inner"></div>
+        </div>
+
+        <script>
+            function add_inner() {
+                let inner = document.querySelector('.sidebar-toggle-inner')
+                inner.classList.add('show')
+            }
+
+            function remove_inner() {
+                let inner = document.querySelector('.sidebar-toggle-inner')
+                inner.classList.remove('show')
+            }
+
+            function sidebar_toggle() {
+                let sidebar_toggle = document.querySelector('.sidebar-toggle')
+                let sidebar = document.querySelector('.book-sidebar')
+                let content = document.querySelector('.off-canvas-content')
+                if (sidebar_toggle.classList.contains('extend')) { // show
+                    sidebar_toggle.classList.remove('extend')
+                    sidebar.classList.remove('hide')
+                    content.classList.remove('extend')
+                } else { // hide
+                    sidebar_toggle.classList.add('extend')
+                    sidebar.classList.add('hide')
+                    content.classList.add('extend')
+                }
+            }
+
+
+            function open_sidebar() {
+                let sidebar = document.querySelector('.book-sidebar')
+                let overlay = document.querySelector('.off-canvas-overlay')
+                sidebar.classList.add('show')
+                overlay.classList.add('show')
+            }
+            function hide_canvas() {
+                let sidebar = document.querySelector('.book-sidebar')
+                let overlay = document.querySelector('.off-canvas-overlay')
+                sidebar.classList.remove('show')
+                overlay.classList.remove('show')
+            }
+
+        </script>
+
+        <div class="off-canvas-content">
+            <div class="columns">
+                <div class="column col-12 col-lg-12">
+                    <div class="book-navbar">
+                        <!-- For Responsive Layout -->
+                        <header class="navbar">
+                            <section class="navbar-section">
+                                <a onclick="open_sidebar()">
+                                    <i class="icon icon-menu"></i>
+                                </a>
+                            </section>
+                        </header>
+                    </div>
+                    <div class="book-content" style="max-width: 960px; margin: 0 auto;
+    overflow-x: auto;
+    overflow-y: hidden;">
+                        <div class="book-post">
+                            <p id="tip" align="center"></p>
+                            <div><h1>14  性能之道：RocketMQ与Kafka高性能设计对比</h1>
+<p>你好，我是丁威。</p>
+<p>RocketMQ 和 Kafka 是当下最主流的两款消息中间件，我们这节课就从文件布局、数据写入方式、消息发送客户端这三个维度对比一下实现 kafka 和 RocketMQ 的差异，通过这种方式学习高性能编程设计的相关知识。</p>
+<h2>文件布局</h2>
+<p>我们首先来看一下 Kafka 与 RocketMQ 的文件布局。</p>
+<p>Kafka 的文件存储设计在宏观上的布局如下图所示：</p>
+<p><img src="assets/77bd5812f5b3e056d407b38af75d197e-20220924200924-tdi6siw.jpg" alt="" /></p>
+<p>我们解析一下它的主要特征。</p>
+<ul>
+<li>
+<p>文件的组织方式是“ topic + 分区”，每一个 topic 可以创建多个分区，每一个分区包含单独的文件夹。</p>
+</li>
+<li>
+<p>分区支持副本机制，即一个分区可以在多台机器上复制数据。topic 中每一个分区会有 Leader 与 Follow。**Kafka 的内部机制可以保证 topic 某一个分区的 Leader 与 Follow 不在同一台机器上，并且每一台 Broker 会尽量均衡地承担各个分区的 Leade。**当然，在运行过程中如果 Leader 不均衡，也可以执行命令进行手动平衡。</p>
+</li>
+<li>
+<p>Leader 节点承担一个分区的读写，Follow 节点只负责数据备份。</p>
+</li>
+</ul>
+<p>Kafka 的负载均衡主要取决于分区 Leader 节点的分布情况。分区的 Leader 节点负责读写，而从节点负责数据同步，如果 Leader 分区所在的 Broker 节点宕机，会触发主从节点的切换，在剩下的 Follow 节点中选举一个新的 Leader 节点。这时数据的流入流程如下图所示：</p>
+<p><img src="assets/095318b1977c4a6139b0d82fbeafc8e7-20220924200924-7mj8o7q.jpg" alt="" /></p>
+<p>分区 Leader 收到客户端的消息发送请求后，可以有两种数据返回策略。一种是将数据写入到 Leader 节点后就返回，还有一种是等到它的从节点全部写入完成后再返回。这个策略选择非常关键，会直接影响消息发送端的时延，所以 Kafka 提供了 ack 这个参数来进行策略选择：</p>
+<ul>
+<li>
+<p>当 ack = 0 时，不等 Broker 端确认就直接返回，即客户端将消息发送到网络中就返回“发送成功”；</p>
+</li>
+<li>
+<p>当 ack = 1 时，Leader 节点接受并存储消息后立即向客户端返回“成功”；</p>
+</li>
+<li>
+<p>当 ack = -1 时，Leader 节点和所有的 Follow 节点接受并成功存储消息，再向客户端返回“成功”。</p>
+</li>
+</ul>
+<p>我们再来看一下 RocketMQ 的文件布局：</p>
+<p><img src="assets/9c265dc5735c6fb6fd0c091c63341529-20220924200924-idvg7h8.jpg" alt="" /></p>
+<p>RocketMQ 所有主题的消息都会写入到 commitlog 文件中，然后基于 commitlog 文件构建消息消费队列文件（Consumequeue），消息消费队列的组织结构按照 /topic/{queue} 来组织。从集群的视角来看如下图所示：</p>
+<p><img src="assets/4c9d69883c7fb9af170f74bb8d5d537f-20220924200924-ysbbdpa.jpg" alt="" /></p>
+<p>RocketMQ 默认采取的是主从同步架构，即 Master-Slave 方式，其中 Master 节点负责读写，Slave 节点负责数据同步与消费。</p>
+<p>值得注意的是，RocketMQ4.5 引入了多副本机制，RocketMQ 的副本机制与 kafka 的多副本两者之间的不同点是 RocketMQ 的副本维度是 Commitlog 文件，而 kafka 是主题分区级别。</p>
+<p>我们来看看 Kafka 和 RocketMQ 在文件布局上的异同。</p>
+<p>Kafka 中文件的布局是以 Topic/partition 为主 ，每一个分区拥有一个物理文件夹，Kafka 在**分区级别实现文件顺序写。**如果一个 Kafka 集群中有成百上千个主题，每一个主题又有上百个分区，消息在高并发写入时，IO 操作就会显得很零散，效果相当于随机 IO。也就是说，<strong>Kafka 在消息写入时的 IO 性能，会随着 topic 、分区数量的增长先上升，后下降</strong>。</p>
+<p>而 RocketMQ 在消息写入时追求极致的顺序写，所有的消息不分主题一律顺序写入 commitlog 文件， topic 和 分区数量的增加不会影响写入顺序。</p>
+<p><strong>根据我的实践经验，当磁盘是 SSD 时，采用同样的配置，Kafka 的吞吐量要超过 RocketMQ，我认为这里的主要原因是单文件顺序写入很难充分发挥磁盘 IO 的性能。</strong></p>
+<p>除了在磁盘顺序写方面的差别，Kafka 和 RocketMQ 的运维成本也不同。由于粒度的原因，Kafka 的 topic 扩容分区会涉及分区在各个 Broker 的移动，它的扩容操作比较重。而 RocketMQ 的数据存储主要基于 commitlog 文件，扩容时不会产生数据移动，只会对新的数据产生影响。因此，RocketMQ 的运维成本相对 Kafka 更低。</p>
+<p>不过，Kafka 和 RocketMQ 也有一些共同点。Kafka 的 ack 参数可以类比 RocketMQ 的同步复制、异步复制。</p>
+<ul>
+<li>
+<p>Kafka 的“ack 参数 =1”时，对标 RocketMQ 的异步复制，有数据丢失的风险；</p>
+</li>
+<li>
+<p>kafka 的“ack 参数 =-1”时，对标 RocketMQ 的同步复制；</p>
+</li>
+<li>
+<p>Kafka 的“ack 参数 =0”时，对标 RocketMQ 消息发送方式的 oneway 模式，适合日志采集场景。</p>
+</li>
+</ul>
+<p>在业务领域通常是不容许数据丢失的。但如果这些数据容易重推，就可以使用 ack=1，而不使用 ack=-1，因为 ack=-1 时的性能较低。</p>
+<p>例如，我们在公司开发数据同步中间件时，都是基于数据库 Binlog 日志同步到 Es、MySQL、Oracle 等目标端，由于同步任务支持回溯，故通常将 ack 设置为 1。</p>
+<h2>数据写入方式</h2>
+<p>聊完数据文件布局，我们再来看一下 Kafka、和 RocketMQ 的服务端是如何处理数据写入的。</p>
+<p>我们还是先来看 Kafka。</p>
+<p>Kafka 服务端处理消息写入的代码定义在 MemoryRecords 的 writeTo 方法中，具体代码截图如下（具体是调用入口 LogSegment 的 append 方法）：</p>
+<p><img src="assets/4273dc5c95f323c0e5d5db2e594b943f-20220924200922-9g1uvxl.png" alt="" /></p>
+<p>Kafka 服务端写入消息时，主要是调用 FileChannel 的 transferTo 方法，该方法底层使用了操作系统的 sendfile 系统调用。</p>
+<p>而 RocketMQ 的消息写入支持内存映射与 FileChannel 两种写入方式，如下图所示：</p>
+<p><img src="assets/9984b5e551aa6a186213aa3dcb36240e-20220924200922-wj19roj.jpg" alt="" /></p>
+<p>也就是说，如果将参数 tranisentStorePoolEnable 设置为 false，那就先将消息写入到页缓存，然后根据刷盘机制持久化到磁盘中。如果将参数设置为 true，数据会先写入到堆外内存，然后批量提交到 FileChannel，并最终根据刷盘策略将数据持久化到磁盘中。</p>
+<p>值得注意的是，RocketMQ 与 Kafka 都支持通过 FileChannel 方式写入，但 RocketMQ 基于 FileChannel 写入时，调用的 API 并不是 transferTo，而是先调用 writer，然后定时 flush 刷写到磁盘，具体调用入口为 MappedFile。代码截图如下：</p>
+<p><img src="assets/70a6ac8de5ab8dc626e13e6dc837bdd6-20220924200922-dn2lj0k.png" alt="" /></p>
+<p>直接调用 FileChannel 的 transferTo 方法比 write 方法性能更优，因为 transferTo 底层使用了操作系统的 sendfile 系统调用，能充分发挥块设备的优势。</p>
+<p>根据我的实践经验，sendfile 系统调用相比内存映射多了一个从用户缓存区拷贝到内核缓存区的步骤，但当内存写入超过 64K 时， sendfile 的性能往往更高，故 Kafka 在服务端的写入比 RocketMQ 会有更好的表现。</p>
+<h2>消息发送</h2>
+<p>最后我们再从客户端消息发送这个角度看一下两款中间件的差异。</p>
+<p>Kafka 消息发送客户端采用的是双端队列，还引入了批处理思想，它的消息发送机制如下图所示：</p>
+<p><img src="assets/8d032bcc7cd9fd4e67383e81bc5d1597-20220924200923-257ekig.jpg" alt="" /></p>
+<p>当客户端想要调用 Kafka 的消息发送者发送消息时，消息会首先存入到一个双端队列中，双端队列中单个元素为 ProducerBatch，表示一个发送批次，其最大值受参数 batch.size 控制，默认为 16K。</p>
+<p>然后，Kafka 客户端会单独开一个 Send 线程，从双端队列中获取发送批次，将消息按批发送到 Kafka 集群中。Kafka 还引入了 linger.ms 参数来控制 Send 线程的发送行为，代表批次要在双端队列中等待的最小时长。</p>
+<p>如果将 linger.ms 设置为 0，表示立即发送消息；如果将参数设置为大于 0，那么发送线程在发送消息时只会从双端队列中获取等待时长大于该值的批次。 <strong>注意，linger.ms 参数会延长响应时间，但有利于增加吞吐量。有点类似于 TCP 领域的 Nagle 算法</strong>。</p>
+<p>Kafka 的消息发送，在写入 ProducerBatch 时会按照消息存储协议组织数据，在服务端可以直接写入到文件中。</p>
+<p>RocketMQ 的消息发送在客户端主要是根据路由选择算法选择一个队列，然后将消息发送到服务端。消息会在服务端按照消息的存储格式进行组织，然后进行持久化等操作。</p>
+<p>Kafka 相比 RocketMQ 有一个非常大的优势，那就是它的消息格式是在客户端组装的，这就节约了 Broker 端的 CPU 压力，这两款中间件在架构方式上的差异有点类似 ShardingJDBC 与 MyCat 的区别。</p>
+<p>Kafka 在消息发送端的另外一个特点就是，引入了双端缓存队列。可以看出，Kafka 的设计始终在追求批处理，这能够提高消息发送的吞吐量，但与之相对的问题是，消息的响应时间延长了，消息丢失的可能性也加大（因为 Kafka 追加到消息缓存后会返回“成功”，但是如果消息发送方异常退出，会导致消息丢失）。</p>
+<p>我们可以将 Kafka 中 linger.ms=0 的情况类比 RocketMQ 消息发送的效果。但 Kafka 通过调整 batch.size 与 linger.ms 两个参数来适应不同场景，这种方式比 RocketMQ 更为灵活。例如，日志集群通常会调大 batch.size 与 linger.ms 参数，充分发挥消息批量发送带来的优势，提高吞吐量；但如果有些场景对响应时间比较敏感，就可以适当调低 linger.ms 的值。</p>
+<h2>总结</h2>
+<p>好了，这节课就讲到这里。刚才，我们从文件布局、服务端数据写入方式、客户端消息发送方式三个维度，对比了 Kafka 和 RocketMQ 各自在追求高性能时所采用的技术。综合对比来看，在同等硬件配置一下，Kafka 的综合性能要比 RocketMQ 更为强劲。</p>
+<p>RocketMQ 和 Kafka 都使用了顺序写机制，但相比 Kafka，RocketMQ 在消息写入时追求极致的顺序写，会在同一时刻将消息全部写入一个文件，这显然无法压榨磁盘的性能。而 Kafka 是分区级别顺序写，在分区数量不多的情况下，从所有分区的视角来看是随机写，但这能重复发挥 CPU 的多核优势。因此，在磁盘没有遇到瓶颈时，Kafka 的性能要优于 RocketMQ。</p>
+<p>同时，Kafka 在服务端写入时使用了 FileChannel 的 transferTo 方法，底层使用 sendfile 系统调用，比普通的 FileChannel 的 write 方法更有优势。结合压测效果来看，如果待写入的消息体大小超过 64K，使用 sendfile 的块写入方式甚至比内存映射拥有更好的性能。</p>
+<p>在消息发送方面，Kafka 的客户端则充分利用了批处理思想，比 RocketMQ 拥有更高的吞吐率。</p>
+<h2>课后题</h2>
+<p>最后，我还是给你留一道思考题。</p>
+<p>通过了解 RocketMQ 和 Kafka 的实现机制，我们知道 RocketMQ 还有很大的进步空间。你认为应该如何优化 RocketMQ？</p>
+<p>欢迎你在留言区与我交流讨论，我们下节课见！</p>
+</div>
+                        </div>
+                        <div>
+                            <div style="float: left">
+                                <a href="13%20%20%E6%8A%80%E6%9C%AF%E9%80%89%E5%9E%8B%EF%BC%9A%E5%A6%82%E4%BD%95%E6%A0%B9%E6%8D%AE%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF%E9%80%89%E6%8B%A9%E5%90%88%E9%80%82%E7%9A%84%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%EF%BC%9F.md.html">上一页</a>
+                            </div>
+                            <div style="float: right">
+                                <a href="15%20%E6%A1%88%E4%BE%8B%EF%BC%9A%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E8%93%9D%E7%BB%BF%EF%BC%9F.md.html">下一页</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="copyright"><p>© 2019 - 2023 <a href="../../cdn-cgi/l/email-protection.html#751919194c4144444542351218141c195b161a18" target="_blank">Liangliang Lee</a>. Powered by <a href="https://vertx.io/" target="_blank">Vert.x</a> and <a href="https://github.com/kaiiiz/hexo-theme-book" target="_blank">hexo-theme-book</a>.</p></div>
+        </div>
+
+        <a class="off-canvas-overlay" onclick="hide_canvas()"></a>
+    </div>
+<script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script defer src="https://static.cloudflareinsights.com/beacon.min.js/vb26e4fa9e5134444860be286fd8771851679335129114" integrity="sha512-M3hN/6cva/SjwrOtyXeUa5IuCT0sedyfT+jK/OV+s+D0RnzrTfwjwJHhd+wYfMm9HJSrZ1IKksOdddLuN6KOzw==" data-cf-beacon='{"rayId":"7af09427bbe4fa86","version":"2023.3.0","r":1,"token":"1f5d475227ce4f0089a7cff1ab17c0f5","si":100}' crossorigin="anonymous"></script>
+</body>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NPSEEVD756"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-NPSEEVD756');
+    var path = window.location.pathname
+    var cookie = getCookie("lastPath");
+    console.log(path)
+    if (path.replace("/", "") === "") {
+        if (cookie.replace("/", "") !== "") {
+            console.log(cookie)
+            document.getElementById("tip").innerHTML = "<a href='" + cookie + "'>跳转到上次进度</a>"
+        }
+    } else {
+        setCookie("lastPath", path)
+    }
+
+    function setCookie(cname, cvalue) {
+        var d = new Date();
+        d.setTime(d.getTime() + (180 * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toGMTString();
+        document.cookie = cname + "=" + cvalue + "; " + expires + ";path = /";
+    }
+
+    function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i].trim();
+            if (c.indexOf(name) === 0) return c.substring(name.length, c.length);
+        }
+        return "";
+    }
+
+    hljs.initHighlightingOnLoad()
+
+</script>
+
+</html>
